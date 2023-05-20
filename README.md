@@ -107,7 +107,9 @@ Para probar de una forma mas visual este modelo, desarrolle una aplicacion de we
 TensorFlow.js, pero tuve algunos problemas que no supe solucionar; a causa de esto decidi usar una biblioteca de Python llamada Streamlit
 que cumpliria con la tarea perfectamente. Aqui algunas imagenes de como funciona:
 
-[imagenes de la aplicacion]
+![imagenes de la aplicacion](imagenes/app1.png)
+![imagenes de la aplicacion2](imagenes/app2.png)
+![imagenes de la aplicacion3](imagenes/app3.png)
 
 ## Conclusion.
 Fue una practica divertida de hacer para practicar CNN. Ademas, se me hizo muy bueno desarrollar la pequeña aplicacion web 
