@@ -1,10 +1,11 @@
 # Clasificador de Flores
 ## Introducción
+![imagen de sunflower](imagenes/flor.jpg)
 En nuestro mundo hay una enorme cantidad de flores, de diferentes tamaños, formas y colores. Por eso, desarrollar un sistema 
 que pueda reconocer algunas de ellas (sería demasiado reconocer todas) es una práctica interesante. En este repositorio se
 hizo una practica sobre una red neuronal con CNN presicamente para esto, les hablare un poco de esto a continuacion.
 
-[imagen de sunflower aqui]
+
 
 ## Los datos
 Antes que nada, debo mencionar que saqué el dataset de [Kaggle](https://www.kaggle.com/datasets/utkarshsaxenadn/flower-classification-5-classes-roselilyetc). Este dataset está dividido en 3 carpetas: 
@@ -35,11 +36,11 @@ valid_dataset = valid_gen.flow_from_directory("validation", class_mode='binary',
 test_dataset  =  test_gen.flow_from_directory( "test", class_mode='binary', target_size=(256,256), shuffle=True, batch_size=32)
 ```
 Aqui algunos ejemplos de las imagenes con las que vamos a entrenar:
-[imagen de las flores]
+![imagen de las flores](imagenes/flores_train.png)
 
 ## CNN
 Como mencione, se uso una "Convolutional Neuronal Network", que tiene una estructura como esta:
-[Imagen de CNN]
+![Imagen de CNN](imagenes/cnn.png)
 
 ## Transferencia de conocimiento
 Desde una perspectiva arquitectónica, BiT no es más que una versión escalada 4 veces de ResNet152V2. 
@@ -52,7 +53,7 @@ extremadamente bueno en el conjunto de datos pequeño. Hay 3 variantes de BiT:
 - BiT-S: Esto se entrena en la tarea de clasificación de imágenes con 1,3 millones de muestras.
 En este cuaderno, vamos a usar BiT-M.
 
-[Imagen de Resnet152v2]
+![Imagen de Resnet152v2](imagenes/resnet.png)
 
 ## Construcción del modelo
 Con la transferencia de aprendizaje esta parte del trabajo se facilito bastante. Solo agregamos una capa para que funcionara
@@ -64,7 +65,7 @@ model = Sequential([
     Dense(total_classes, activation = "softmax", kernel_initializer = "zeros")
 ], name = "Flower_Classification")
 ```
-[Imagen del model summary]
+![Imagen del model summary](imagenes/model_summary.png)
 
 ## Entrenamiento
 Para entrenar usamos un learning rate muy bajo ya que lei que para el modelo de BiT da mejores resultados cuando esto es asi.
@@ -93,13 +94,13 @@ history = model.fit(
 ])
 ```
 Y obtuvimos los siguientes resultados: loss: 0.3215 - accuracy: 0.9121 - val_loss: 0.2470 - val_accuracy: 0.9318
-[graficas de resultados]
+![graficas de resultados](imagenes/grafica.png)
 
 La pérdida disminuye continuamente y sorprendentemente, la pérdida de validación es mucho menor que la pérdida de entrenamiento. 
 Tanto la precisión de validación como la de entrenamiento están muy cerca una de la otra. 
 Esto demuestra la alta robustez del modelo.
 
-[imagen de las predicciones]
+![imagen de las predicciones](imagenes/resultados.png)
 
 ## App Web
 Para probar de una forma mas visual este modelo, desarrolle una aplicacion de web de deteccion. En un principio trate de usar
