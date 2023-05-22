@@ -51,6 +51,7 @@ extremadamente bueno en el conjunto de datos pequeño. Hay 3 variantes de BiT:
 - BiT-L: Esto se entrena en la tarea de clasificación de imágenes con 300 millones de muestras (esto es privado).
 - BiT-M: Esto se entrena en la tarea de clasificación de imágenes con 14 millones de muestras.
 - BiT-S: Esto se entrena en la tarea de clasificación de imágenes con 1,3 millones de muestras.
+
 En este cuaderno, vamos a usar BiT-M.
 
 ![Imagen de Resnet152v2](imagenes/resnet.png)
@@ -104,12 +105,24 @@ Esto demuestra la alta robustez del modelo.
 
 ## App Web
 Para probar de una forma mas visual este modelo, desarrolle una aplicacion de web de deteccion. En un principio trate de usar
-TensorFlow.js, pero tuve algunos problemas que no supe solucionar; a causa de esto decidi usar una biblioteca de Python llamada Streamlit
-que cumpliria con la tarea perfectamente. Aqui algunas imagenes de como funciona:
+TensorFlow.js, pero tuve algunos problemas que no supe solucionar; a causa de esto decidi usar una biblioteca de Python llamada Streamlit que cumpliria con la tarea perfectamente. Aqui algunas imagenes de como funciona:
 
 ![imagenes de la aplicacion](imagenes/app1.png)
 ![imagenes de la aplicacion2](imagenes/app2.png)
 ![imagenes de la aplicacion3](imagenes/app3.png)
+
+Esta App esta desarrollada en el archivo del repositorio **flower_prediction.py**.
+Para poder correr la app se ocupan TensorFlow para cargar el modelo con Keras y Streamlit, este ultimo se puede instalar con pip. En la documentacion
+se recomienda hacerlo con un enviroment.
+```python
+pip install streamlit
+```
+Una vez instaladas la libreria de TensorFlow y Streamlit podemos correr la appc con el comando:
+```python
+streamlit run flower_prediction.py
+```
+
+De igual manera aqui esta la [documentacion](https://docs.streamlit.io/library/get-started/installation) de streamlit sobre la instalacion.
 
 ## Conclusion.
 Fue una practica divertida de hacer para practicar CNN. Ademas, se me hizo muy bueno desarrollar la pequeña aplicacion web 
